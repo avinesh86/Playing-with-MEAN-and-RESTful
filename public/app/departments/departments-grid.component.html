@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row grid-container">
+        <div class="col-md-10">
+            <div class="table">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th (click)="sort('departmentName')">Department Name</th>
+                            <th (click)="sort('description')">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let department of departments;trackBy:trackby.department">
+                            <td><a [routerLink]="['/departments',department._id]">{{ department.departmentName | capitalize }}</a></td>
+                            <td>{{ department.departmentName | capitalize }}</td>
+                            <td>{{ department.description }}</td>
+                        </tr>
+                        <tr *ngIf="!departments.length">
+                            <td>&nbsp;</td>
+                            <td colspan="6">No Records Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
