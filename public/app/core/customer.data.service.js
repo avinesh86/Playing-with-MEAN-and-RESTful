@@ -16,12 +16,12 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/throw");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch");
-var DataService = (function () {
-    function DataService(http) {
+var CustomerDataService = (function () {
+    function CustomerDataService(http) {
         this.http = http;
         this.customerURI = '/api/customers';
     }
-    DataService.prototype.getCustomers = function () {
+    CustomerDataService.prototype.getCustomers = function () {
         var _this = this;
         return this.http.get(this.customerURI)
             .map(function (res) {
@@ -31,7 +31,7 @@ var DataService = (function () {
         })
             .catch(this.handleError);
     };
-    DataService.prototype.getCustomersPage = function (page, pageSize) {
+    CustomerDataService.prototype.getCustomersPage = function (page, pageSize) {
         var _this = this;
         return this.http.get(this.customerURI + "/page/" + page + "/" + pageSize)
             .map(function (res) {
@@ -45,12 +45,12 @@ var DataService = (function () {
         })
             .catch(this.handleError);
     };
-    DataService.prototype.getCustomer = function (id) {
+    CustomerDataService.prototype.getCustomer = function (id) {
         return this.http.get(this.customerURI + '/' + id)
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
-    DataService.prototype.insertCustomer = function (customer) {
+    CustomerDataService.prototype.insertCustomer = function (customer) {
         return this.http.post(this.customerURI, customer)
             .map(function (res) {
             var data = res.json();
@@ -59,7 +59,7 @@ var DataService = (function () {
         })
             .catch(this.handleError);
     };
-    DataService.prototype.updateCustomer = function (customer) {
+    CustomerDataService.prototype.updateCustomer = function (customer) {
         return this.http.put(this.customerURI + '/' + customer._id, customer)
             .map(function (res) {
             var data = res.json();
@@ -68,26 +68,26 @@ var DataService = (function () {
         })
             .catch(this.handleError);
     };
-    DataService.prototype.deleteCustomer = function (id) {
+    CustomerDataService.prototype.deleteCustomer = function (id) {
         return this.http.delete(this.customerURI + '/' + id)
             .map(function (res) { return res.json().status; })
             .catch(this.handleError);
     };
     //Not used but could be called to pass "options" (3rd parameter) to 
     //appropriate POST/PUT/DELETE calls made with http
-    DataService.prototype.getRequestOptions = function () {
+    CustomerDataService.prototype.getRequestOptions = function () {
         var csrfToken = ''; //would retrieve from cookie or from page
         var options = new http_1.RequestOptions({
             headers: new http_1.Headers({ 'x-xsrf-token': csrfToken })
         });
         return options;
     };
-    DataService.prototype.getStates = function () {
+    CustomerDataService.prototype.getStates = function () {
         return this.http.get('/api/states')
             .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
-    DataService.prototype.calculateCustomersOrderTotal = function (customers) {
+    CustomerDataService.prototype.calculateCustomersOrderTotal = function (customers) {
         for (var _i = 0, customers_1 = customers; _i < customers_1.length; _i++) {
             var customer = customers_1[_i];
             if (customer && customer.orders) {
@@ -100,7 +100,7 @@ var DataService = (function () {
             }
         }
     };
-    DataService.prototype.handleError = function (error) {
+    CustomerDataService.prototype.handleError = function (error) {
         console.error('server error:', error);
         if (error instanceof http_1.Response) {
             var errMessage = '';
@@ -116,11 +116,11 @@ var DataService = (function () {
         }
         return Observable_1.Observable.throw(error || 'Node.js server error');
     };
-    DataService = __decorate([
+    CustomerDataService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
-    ], DataService);
-    return DataService;
+    ], CustomerDataService);
+    return CustomerDataService;
 }());
-exports.DataService = DataService;
-//# sourceMappingURL=data.service.js.map
+exports.CustomerDataService = CustomerDataService;
+//# sourceMappingURL=customer.data.service.js.map

@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var data_filter_service_1 = require("../core/data-filter.service");
-var data_service_1 = require("../core/data.service");
+var department_data_service_1 = require("../core/department.data.service");
 var DepartmentsComponent = (function () {
     function DepartmentsComponent(router, dataService, dataFilter) {
         this.router = router;
@@ -54,7 +54,7 @@ var DepartmentsComponent = (function () {
             templateUrl: 'departments.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router,
-            data_service_1.DataService,
+            department_data_service_1.DepartmentDataService,
             data_filter_service_1.DataFilterService])
     ], DepartmentsComponent);
     return DepartmentsComponent;

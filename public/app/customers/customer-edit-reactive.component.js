@@ -118,11 +118,10 @@ var CustomerEditReactiveComponent = (function () {
             templateUrl: 'customer-edit-reactive.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router,
-            router_1.ActivatedRoute,
-            data_service_1.DataService,
-            forms_1.FormBuilder])
+            router_1.ActivatedRoute, typeof (_a = typeof data_service_1.DataService !== "undefined" && data_service_1.DataService) === "function" && _a || Object, forms_1.FormBuilder])
     ], CustomerEditReactiveComponent);
     return CustomerEditReactiveComponent;
+    var _a;
 }());
 exports.CustomerEditReactiveComponent = CustomerEditReactiveComponent;
 //# sourceMappingURL=customer-edit-reactive.component.js.map

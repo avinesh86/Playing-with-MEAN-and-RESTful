@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { DataService } from '../core/data.service';
+import { DepartmentDataService } from '../core/department.data.service';
 import { IDepartment, IState } from '../shared/interfaces';
 
 @Component({
@@ -21,7 +21,7 @@ export class DepartmentsEditComponent implements OnInit {
   
   constructor(private router: Router, 
               private route: ActivatedRoute, 
-              private dataService: DataService) { }
+              private dataService: DepartmentDataService) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params['id'];
@@ -58,7 +58,7 @@ export class DepartmentsEditComponent implements OnInit {
         this.dataService.insertDepartment(this.department)
           .subscribe((department: IDepartment) => {
             if (department) {
-              this.router.navigate(['/department']);
+              this.router.navigate(['/departments']);
             }
             else {
               this.errorMessage = 'Unable to add department';

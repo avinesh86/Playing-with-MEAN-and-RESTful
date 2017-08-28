@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DataFilterService } from '../core/data-filter.service';
-import { DataService } from '../core/data.service';
+import { DepartmentDataService } from '../core/department.data.service';
 import { IDepartment, IPagedResults } from '../shared/interfaces';
 
 @Component({ 
@@ -20,7 +20,7 @@ export class DepartmentsComponent implements OnInit {
   pageSize: number = 10;
 
   constructor(private router: Router, 
-              private dataService: DataService,
+              private dataService: DepartmentDataService,
               private dataFilter: DataFilterService) { }
   
   ngOnInit() {

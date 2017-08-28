@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row grid-container">
+        <div class="col-md-10">
+            <div class="table">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th (click)="sort('designationName')">Designation Name</th>
+                            <th (click)="sort('description')">Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let designation of designations;trackBy:trackby.designation">
+                            <td><a [routerLink]="['/designations',designation._id]">{{ designation.designationName | capitalize }}</a></td>
+                            <td>{{ designation.designationName | capitalize }}</td>
+                            <td>{{ designation.description }}</td>
+                        </tr>
+                        <tr *ngIf="!designations.length">
+                            <td>&nbsp;</td>
+                            <td colspan="6">No Records Found</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

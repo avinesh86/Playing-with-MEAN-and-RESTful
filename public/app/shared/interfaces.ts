@@ -1,5 +1,26 @@
 import { ModuleWithProviders } from '@angular/core';
 
+export interface IEmployee {
+    _id?: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    designation?: IDesignation;
+    department?: IDepartment;
+    address: string;
+    city: string;
+    state?: IState;
+    stateId?: number;
+    zip: number;
+    gender: string;
+}
+
+export interface IDesignation {
+    _id?: string;
+    designationName?: string;
+    description: string;
+}
+
 export interface IDepartment {
     _id?: string;
     departmentName?: string;

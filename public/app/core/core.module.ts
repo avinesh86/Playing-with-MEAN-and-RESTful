@@ -1,7 +1,9 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { HttpModule, XSRFStrategy, CookieXSRFStrategy } from '@angular/http';
 
-import { DataService } from './data.service';
+import { CustomerDataService } from './customer.data.service';
+import { DepartmentDataService } from './department.data.service';
+import { DesignationDataService } from './designation.data.service';
 import { DataFilterService } from './data-filter.service';
 import { Sorter } from './sorter';
 import { TrackByService } from './trackby.service';
@@ -12,7 +14,7 @@ import { EnsureModuleLoadedOnceGuard } from '../shared/ensureModuleLoadedOnceGua
   providers: [
     //Default XSRF provider setup (change cookie or header name if needed): 
     //{ provide: XSRFStrategy, useValue: new CookieXSRFStrategy('XSRF-TOKEN', 'X-XSRF-TOKEN') },
-    DataService, DataFilterService, Sorter, TrackByService] // these should be singleton
+    DepartmentDataService, DesignationDataService, CustomerDataService, DataFilterService, Sorter, TrackByService] // these should be singleton
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {    //Ensure that CoreModule is only loaded into AppModule
 

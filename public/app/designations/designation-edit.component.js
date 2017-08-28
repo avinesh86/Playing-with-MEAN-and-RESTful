@@ -11,85 +11,85 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var department_data_service_1 = require("../core/department.data.service");
-var DepartmentsEditComponent = (function () {
-    function DepartmentsEditComponent(router, route, dataService) {
+var designation_data_service_1 = require("../core/designation.data.service");
+var DesignationEditComponent = (function () {
+    function DesignationEditComponent(router, route, dataService) {
         this.router = router;
         this.route = route;
         this.dataService = dataService;
-        this.department = {
-            departmentName: '',
+        this.designation = {
+            designationName: '',
             description: ''
         };
         this.operationText = 'Insert';
     }
-    DepartmentsEditComponent.prototype.ngOnInit = function () {
+    DesignationEditComponent.prototype.ngOnInit = function () {
         var id = this.route.snapshot.params['id'];
         if (id !== '0') {
             this.operationText = 'Update';
-            this.getDepartment(id);
+            this.getDesignation(id);
         }
     };
-    DepartmentsEditComponent.prototype.getDepartment = function (id) {
+    DesignationEditComponent.prototype.getDesignation = function (id) {
         var _this = this;
-        this.dataService.getDepartment(id)
-            .subscribe(function (department) {
-            _this.department = department;
+        this.dataService.getDesignation(id)
+            .subscribe(function (designation) {
+            _this.designation = designation;
         }, function (err) { return console.log(err); });
     };
-    DepartmentsEditComponent.prototype.submit = function () {
+    DesignationEditComponent.prototype.submit = function () {
         var _this = this;
-        if (this.department._id) {
-            this.dataService.updateDepartment(this.department)
-                .subscribe(function (department) {
-                if (department) {
-                    _this.router.navigate(['/departments']);
+        if (this.designation._id) {
+            this.dataService.updateDesignation(this.designation)
+                .subscribe(function (designation) {
+                if (designation) {
+                    _this.router.navigate(['/designations']);
                 }
                 else {
-                    _this.errorMessage = 'Unable to save department';
+                    _this.errorMessage = 'Unable to save designation';
                 }
             }, function (err) { return console.log(err); });
         }
         else {
-            this.dataService.insertDepartment(this.department)
-                .subscribe(function (department) {
-                if (department) {
-                    _this.router.navigate(['/departments']);
+            this.dataService.insertDesignation(this.designation)
+                .subscribe(function (designation) {
+                if (designation) {
+                    _this.router.navigate(['/designations']);
                 }
                 else {
-                    _this.errorMessage = 'Unable to add department';
+                    _this.errorMessage = 'Unable to add designation';
                 }
             }, function (err) { return console.log(err); });
         }
     };
-    DepartmentsEditComponent.prototype.cancel = function (event) {
+    DesignationEditComponent.prototype.cancel = function (event) {
         event.preventDefault();
         this.router.navigate(['/']);
     };
-    DepartmentsEditComponent.prototype.delete = function (event) {
+    DesignationEditComponent.prototype.delete = function (event) {
         var _this = this;
         event.preventDefault();
-        this.dataService.deleteDepartment(this.department._id)
+        this.dataService.deleteDesignation(this.designation._id)
             .subscribe(function (status) {
             if (status) {
-                _this.router.navigate(['/departments']);
+                _this.router.navigate(['/designations']);
             }
             else {
-                _this.errorMessage = 'Unable to delete department';
+                _this.errorMessage = 'Unable to delete designation';
             }
         }, function (err) { return console.log(err); });
     };
-    DepartmentsEditComponent = __decorate([
+    DesignationEditComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'department-edit',
-            templateUrl: 'department-edit.component.html'
+            selector: 'designation-edit',
+            templateUrl: 'designation-edit.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router,
             router_1.ActivatedRoute,
-            department_data_service_1.DepartmentDataService])
-    ], DepartmentsEditComponent);
-    return DepartmentsEditComponent;
+            designation_data_service_1.DesignationDataService])
+    ], DesignationEditComponent);
+    return DesignationEditComponent;
 }());
-exports.DepartmentsEditComponent = DepartmentsEditComponent;
-//# sourceMappingURL=department-edit.component.js.map
+exports.DesignationEditComponent = DesignationEditComponent;
+//# sourceMappingURL=designation-edit.component.js.map

@@ -7,13 +7,12 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map'; 
 import 'rxjs/add/operator/catch';
 
-import { IDepartment, ICustomer, IOrder, IState, IPagedResults } from '../shared/interfaces';
+import { ICustomer, IOrder, IState, IPagedResults } from '../shared/interfaces';
 
 @Injectable()
-export class DataService {
+export class CustomerDataService {
   
     customerURI: string = '/api/customers';
-    departmentURI: string = '/api/departments';
 
     constructor(private http: Http) { 
 
@@ -71,63 +70,6 @@ export class DataService {
 
     deleteCustomer(id: string) : Observable<boolean> {
         return this.http.delete(this.customerURI + '/' + id)
-                   .map((res: Response) => res.json().status)
-                   .catch(this.handleError);
-    }
-
-
-    getDepartments() : Observable<IDepartment[]> {
-        return this.http.get(this.departmentURI)
-                   .map((res: Response) => {
-                       let departments = res.json();
-                       this.calculateCustomersOrderTotal(departments);
-                       return departments;
-                   })
-                   .catch(this.handleError);
-    }
-
-    getDepartmentsPage(page: number, pageSize: number) : Observable<IPagedResults<IDepartment[]>> {
-        return this.http.get(`${this.departmentURI}/page/${page}/${pageSize}`)
-                    .map((res: Response) => {
-                        const totalRecords = +res.headers.get('x-inlinecount');
-                        let departments = res.json();
-                        this.calculateCustomersOrderTotal(departments);
-                        return {
-                            results: departments,
-                            totalRecords: totalRecords
-                        };
-                    })
-                    .catch(this.handleError);
-    }
-    
-    getDepartment(id: string) : Observable<IDepartment> {
-        return this.http.get(this.departmentURI + '/' + id)
-                    .map((res: Response) => res.json())
-                    .catch(this.handleError);
-    }
-
-    insertDepartment(department: IDepartment) : Observable<IDepartment> {
-        return this.http.post(this.departmentURI, department)
-                   .map((res: Response) => {
-                       const data = res.json();
-                       console.log('insertDepartment status: ' + data.status);
-                       return data.department;
-                   })
-                   .catch(this.handleError);
-    }
-   
-    updateDepartment(department: IDepartment) : Observable<IDepartment> {
-        return this.http.put(this.departmentURI + '/' + department._id, department) 
-                   .map((res: Response) => {
-                       const data = res.json();
-                       console.log('updateDepartment status: ' + data.status);
-                       return data.department;
-                   })
-                   .catch(this.handleError);
-    }
-
-    deleteDepartment(id: string) : Observable<boolean> {
-        return this.http.delete(this.departmentURI + '/' + id)
                    .map((res: Response) => res.json().status)
                    .catch(this.handleError);
     }

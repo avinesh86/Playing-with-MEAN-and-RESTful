@@ -96,10 +96,10 @@ var CustomerEditComponent = (function () {
             templateUrl: 'customer-edit.component.html'
         }),
         __metadata("design:paramtypes", [router_1.Router,
-            router_1.ActivatedRoute,
-            data_service_1.DataService])
+            router_1.ActivatedRoute, typeof (_a = typeof data_service_1.DataService !== "undefined" && data_service_1.DataService) === "function" && _a || Object])
     ], CustomerEditComponent);
     return CustomerEditComponent;
+    var _a;
 }());
 exports.CustomerEditComponent = CustomerEditComponent;
 //# sourceMappingURL=customer-edit.component.js.map
