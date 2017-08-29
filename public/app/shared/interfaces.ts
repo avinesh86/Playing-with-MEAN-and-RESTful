@@ -6,7 +6,9 @@ export interface IEmployee {
     lastName: string;
     email: string;
     designation?: IDesignation;
+    designationId?: string;
     department?: IDepartment;
+    departmentId?: string;
     address: string;
     city: string;
     state?: IState;

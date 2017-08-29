@@ -71,7 +71,7 @@ export class DesignationEditComponent implements OnInit {
   
   cancel(event: Event) {
     event.preventDefault();
-    this.router.navigate(['/']);
+    this.router.navigate(['/designations']);
   }
 
   delete(event: Event) {

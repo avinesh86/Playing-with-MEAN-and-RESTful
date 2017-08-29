@@ -71,7 +71,7 @@ export class DepartmentsEditComponent implements OnInit {
   
   cancel(event: Event) {
     event.preventDefault();
-    this.router.navigate(['/']);
+    this.router.navigate(['/departments']);
   }
 
   delete(event: Event) {

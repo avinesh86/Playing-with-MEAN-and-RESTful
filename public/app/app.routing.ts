@@ -10,9 +10,12 @@ import { CustomerEditReactiveComponent } from './customers/customer-edit-reactiv
 import { DesignationsComponent } from './designations/designations.component';
 import { DesignationsGridComponent } from './designations/designations-grid.component';
 import { DesignationEditComponent } from './designations/designation-edit.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeesGridComponent } from './employees/employees-grid.component';
 import { IRouting } from './shared/interfaces';
 
 const routes: Routes = [
+  { path: 'employees', component: EmployeesComponent},
   { path: 'designations', component: DesignationsComponent},
   { path: 'designations/:id', component: DesignationEditComponent},
   { path: 'departments', component: DepartmentsComponent},
@@ -24,7 +27,7 @@ const routes: Routes = [
 
 export const appRouting: IRouting = { 
     routes: RouterModule.forRoot(routes),
-    components: [ DesignationsComponent, DesignationEditComponent, DesignationsGridComponent, DepartmentsComponent, 
+    components: [ EmployeesComponent, EmployeesGridComponent, DesignationsComponent, DesignationEditComponent, DesignationsGridComponent, DepartmentsComponent, 
       DepartmentsEditComponent, DepartmentsGridComponent, CustomersComponent, CustomerEditComponent, 
       CustomerEditReactiveComponent, CustomersGridComponent ]
 };

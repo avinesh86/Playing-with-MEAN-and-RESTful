@@ -28,7 +28,7 @@ th {
 }
 
 .navbar-header {
-    width: 300px;
+    width: 250px;
 }
 
 .nav.navbar-padding {
@@ -38,7 +38,7 @@ th {
 
 .app-title {
     line-height:50px;
-    font-size:20px;
+    font-size:15px;
     color: white;
 }
 

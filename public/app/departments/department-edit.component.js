@@ -64,7 +64,7 @@ var DepartmentsEditComponent = (function () {
     };
     DepartmentsEditComponent.prototype.cancel = function (event) {
         event.preventDefault();
-        this.router.navigate(['/']);
+        this.router.navigate(['/departments']);
     };
     DepartmentsEditComponent.prototype.delete = function (event) {
         var _this = this;

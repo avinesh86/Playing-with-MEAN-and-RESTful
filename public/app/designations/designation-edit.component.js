@@ -64,7 +64,7 @@ var DesignationEditComponent = (function () {
     };
     DesignationEditComponent.prototype.cancel = function (event) {
         event.preventDefault();
-        this.router.navigate(['/']);
+        this.router.navigate(['/designations']);
     };
     DesignationEditComponent.prototype.delete = function (event) {
         var _this = this;

@@ -1,0 +1,28 @@
+<div class="employees view indent">
+    <div class="container">
+        <header>
+            <h3>
+                <span class="glyphicon glyphicon-user"></span>
+                {{ title }}
+            </h3>
+        </header>
+        <br />
+        <div class="row">
+            <div class="col-md-8">
+                <div class="navbar">
+                    <filter-textbox (changed)="filterChanged($event)"></filter-textbox>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-default" [routerLink]="['/employees', '0']">Add New Employee</a>
+            </div>
+        </div>
+    
+        <employees-grid [employees]="filteredEmployees"></employees-grid>
+
+        <pagination [totalItems]="totalRecords" 
+            [pageSize]="pageSize" 
+            (pageChanged)="pageChanged($event)"></pagination>
+          
+    </div>
+</div>

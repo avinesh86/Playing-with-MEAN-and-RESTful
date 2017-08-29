@@ -27,6 +27,7 @@ var http_1 = require("@angular/http");
 var customer_data_service_1 = require("./customer.data.service");
 var department_data_service_1 = require("./department.data.service");
 var designation_data_service_1 = require("./designation.data.service");
+var employee_data_service_1 = require("./employee.data.service");
 var data_filter_service_1 = require("./data-filter.service");
 var sorter_1 = require("./sorter");
 var trackby_service_1 = require("./trackby.service");
@@ -43,7 +44,7 @@ var CoreModule = (function (_super) {
             providers: [
                 //Default XSRF provider setup (change cookie or header name if needed): 
                 //{ provide: XSRFStrategy, useValue: new CookieXSRFStrategy('XSRF-TOKEN', 'X-XSRF-TOKEN') },
-                department_data_service_1.DepartmentDataService, designation_data_service_1.DesignationDataService, customer_data_service_1.CustomerDataService, data_filter_service_1.DataFilterService, sorter_1.Sorter, trackby_service_1.TrackByService
+                employee_data_service_1.EmployeeDataService, department_data_service_1.DepartmentDataService, designation_data_service_1.DesignationDataService, customer_data_service_1.CustomerDataService, data_filter_service_1.DataFilterService, sorter_1.Sorter, trackby_service_1.TrackByService
             ] // these should be singleton
         }),
         __param(0, core_1.Optional()), __param(0, core_1.SkipSelf()),
